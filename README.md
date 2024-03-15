@@ -1,6 +1,6 @@
-# modular_fourier_transform
+# discrete-fourier-transform-over-finite-field
  Fourier transform in positive characteristic. 
  
-Abelian case when representations are just maps $\mathbb{Z}_n \rightarrow F_p^* \cong \mathbb{Z}_{p-1}$.
+Implements the discrete Fourier transform over a ring $R$ in the case where $R$ is a finite field.
 
-Non-abeliean case requires modular representation theory, namely the decomposition of the group algebra $kG = \oplus_i B_i$ into blocks, and dealing with the case $p|n$.
+For non-abelian groups, the situation is more complicated and requires modular representation theory.
