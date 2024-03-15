@@ -1,5 +1,4 @@
-# discrete-fourier-transform-over-finite-field
- Fourier transform in positive characteristic. 
+# discrete-fourier-transform-over-finite-field 
  
 Implements the discrete Fourier transform over a ring $R$ in the case where $R$ is a finite field.
 
