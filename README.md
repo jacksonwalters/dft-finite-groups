@@ -2,7 +2,7 @@
  
 Implements the discrete Fourier transform over a ring $R$ in the case where $R$ is a finite field.
 
-The DFT is usually a map $\mathbb{C}^N \rightarrow \mathbb{C}^N$. However, it can be viewed as a decomposition of the group algebra $\mathbb{C}[C_N]$ where $C_N$ is a cyclic group of order $N$. In this case the representations of the cyclic group are one-dimensional $\chi_k(n) = exp(2\pi i k / n)$, the characters. They span the space of functions on $C_N$, and are orthogonal and linearly independent. The Fourier transform is just $x \mapsto x_n \chi(n)$. This is general for finite groups, where instead of characters we use representations when the group is nonabelian.
+The DFT is usually a map $\mathbb{C}^N \rightarrow \mathbb{C}^N$. However, it can be viewed as a decomposition of the group algebra $\mathbb{C}[C_N]$ where $C_N$ is a cyclic group of order $N$. In this case the representations of the cyclic group are one-dimensional $\chi_k(n) = exp(2\pi i k / n)$, the characters. They span the space of functions on $C_N$, and are orthogonal and linearly independent. The Fourier transform is just $x \mapsto \sum_n x_n \chi(n)$. This is general for finite groups, where instead of characters we use representations when the group is nonabelian.
 
 We can look at an analogous case over a finite field, the decomposition of $F_p[C_N] = F_p[x]/(x^N-1)$. We have two cases:
 
