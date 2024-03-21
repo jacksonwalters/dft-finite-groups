@@ -10,7 +10,7 @@ $p \nmid N$: When $p$ does not divide $N$, we are just looking at the cyclotomic
 
 $p | N$: Here we need to consider that $1/N$ does not exist. Still, we have the decomposition $F_p[x]/(x^N-1) = \prod_{d|m, i} F_p[x]/(P_i(x)^{p^s})$ where we factor $(x^N-1)=(x^m-1)^{p^s}$. We then factor $x^m-1$ into cyclotomic polynomials $\Phi_d(x)$. We further factor those into $P_1 \ldots P_g$, where each factor has residue degree $f$, and there are $g$ polynomials. Here $fg = \phi(d)$, where $\phi$ is Euler's totient function, and $f$ is the order of $p$ modulo $d$. This is equivalent to factoring the prime ideal (p) in $\mathbb{Z}[\zeta] = \mathbb{Z}[x]/(\Phi_d(x))$. 
 
-Though it is possible to use the Chinese remainder theorem to obtain a linear isomorphism $F_p^N \rightarrow F_p^N$, it may be better to find out how to use a primitive m-th root of unity, and deal with the p^s multiplicity to align this case with the first case.
+Though it is possible to use the Chinese remainder theorem to obtain a linear isomorphism $F_p^N \rightarrow F_p^N$, it may be better to find out how to use a primitive m-th root of unity, and deal with the $p^s$ multiplicity to align this case with the first case.
 
 ---
 
