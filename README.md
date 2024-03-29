@@ -6,7 +6,7 @@ The DFT is usually a map $\mathbb{C}^N \rightarrow \mathbb{C}^N$. However, it ca
 
 We can look at an analogous case over a finite field, the decomposition of $F_p[C_N] = F_p[x]/(x^N-1)$. We have two cases:
 
-$p \nmid N$: When $p$ does not divide $N$, we are just looking at the cyclotomic field of order $N$. All the representations of $C_N$ over $F_p$ are one dimensional and irreducible, and we can just use the formula $x \mapsto \sum_{n=0}^{N-1} x_n \alpha^{nk}$ where $\alpha$ is a primitive $N^{th}$ root of unity.
+$p \nmid N$: The polynomial $x^N-1$ is seperable, so is a product of irreducible factors of multiplicity 1. When $N|p-1$, there exists a primitive root of unity $\alpha$, so we can just use the formula $x \mapsto \sum_{n=0}^{N-1} x_n \alpha^{nk}$ where $\alpha$ is a primitive $N^{th}$ root of unity.
 
 $p | N$: Here we need to consider that $1/N$ does not exist. Still, we have the decomposition $F_p[x]/(x^N-1) = \prod_{d|m, i} F_p[x]/(P_i(x)^{p^s})$ where we factor $(x^N-1)=(x^m-1)^{p^s}$. We then factor $x^m-1$ into cyclotomic polynomials $\Phi_d(x)$. We further factor those into $P_1 \ldots P_g$, where each factor has residue degree $f$, and there are $g$ polynomials. Here $fg = \phi(d)$, where $\phi$ is Euler's totient function, and $f$ is the order of $p$ modulo $d$. This is equivalent to factoring the prime ideal (p) in $\mathbb{Z}[\zeta] = \mathbb{Z}[x]/(\Phi_d(x))$. 
 
