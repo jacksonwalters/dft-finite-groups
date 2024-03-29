@@ -12,7 +12,7 @@ $p | N$: Here we need to consider that $1/N$ does not exist. Still, we have the 
 
 We can then use the Chinese remainder theorem to obtain a linear isomorphism $F_p^N \rightarrow F_p^N$.
 
-It may be better to find out how to use a primitive $m$-th root of unity, and deal with the $p^s$ multiplicity to align this case with the first case. In fact, if we just use a splitting field $F_q$, it may look exactly like the case with a primitive root since we can just use a primitive $N^{th}$ root in $F_q$.
+We can always find a splitting field $F_q$ of $x^N-1$ for some $q=p^r$. This is equivalent to finding $N|q-1$ for some $r$. This gives a primitive $N^{th} root in the first place, splitting completely. When $p|n$, each linear factor has multiplicity $p^s$.
 
 ---
 
