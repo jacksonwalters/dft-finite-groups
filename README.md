@@ -18,7 +18,7 @@ We can always find a splitting field $F_q$ of $x^N-1$ for some $q=p^r$. This is 
 
 For non-abelian groups, representation theory in higher dimensions is required.
 
-For the symmetric group, note that when p=char(k) does not divide $N$, we may use Maschke's theorem to decompose $k[S_N] = \bigoplus_i End(V_i)$ where $V_i$ are the irreducible representations. For the symmetric group, these are labeled by partitions $\lambda$, and $V_i = S^\lambda$ are Specht modules.
+For the symmetric group, note that when $p=char(k)$ does not divide $N$, we may use Maschke's theorem to decompose $k[S_N] = \bigoplus_i End(V_i)$ where $V_i$ are the irreducible representations. For the symmetric group, these are labeled by partitions $\lambda$, and $V_i = S^\lambda$ are Specht modules.
 
 When $p|N$, the situation is more complicated and requires modular representation theory. Here the Specht modules are no longer irreducible and Maschke's theorem does not apply. Instead, the simple modules $D^\lambda = S^\lambda / S^\lambda \cap (S^\lambda)^\perp$ are indexed by p-regular partitions of $\lambda$ which do not have any parts with multiplicity more than p, e.g. $(6^2,5,1^3)$ is not 2-regular, since 1 is repeated 3 times. 
 
