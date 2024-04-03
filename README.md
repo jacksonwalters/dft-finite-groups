@@ -22,4 +22,4 @@ When $p|N$, the situation is more complicated and requires modular representatio
 
 We now decompose the group algebra into blocks, $k[S_N] = \bigoplus_i k[S_N]e_i$, where $e_i$ are primitive central orthogonal idempotents. These may be constructed as in Murphy, "The ldempotents of the Symmetric Group and Nakayama’s Conjecture". This is also known as the Pierce decomposition. The modules $D^\lambda$ occur as simple factors in the composition series. The decomposition matrices $D$ with entries $d^{\lambda\mu}$ record the number of times the simple module $D^\mu$ occurs in the composition series for $S^\lambda$. The blocks are labeled by p-cores $\gamma$ which are partitions where all possible rim $p$-hooks have been removed. 
 
-We find a basis for each block $k[S_N]e_i$, then the DFT is the change of basis matrix.
+We find a basis for each block $k[S_N]e_i$ as $\text{span}_k\{\sigma e_i \| \sigma \in S_N\}$. Then the DFT is the change of basis matrix.
