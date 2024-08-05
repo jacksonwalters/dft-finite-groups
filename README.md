@@ -1,6 +1,6 @@
 # discrete-fourier-transform-over-finite-field 
  
-Implements the discrete Fourier transform for the cyclic group and symmetric group over finite fields and number fields. 
+Implements the discrete Fourier transform for the cyclic group and symmetric group over finite fields, and number fields in the unitary case. 
 
 For finite fields, when $p$ divides $|G|$ we use the modular DFT, which is given by the Peirce decomposition using central primitive orthogonal idempotents.
 
