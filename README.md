@@ -1,4 +1,4 @@
-# dft-for-finite-groups-over-various-fields
+# [modular, unitary] DFT of [cyclic group, symmetric group] over [finite fields, number fields]
  
 Implements the discrete Fourier transform for the cyclic group and symmetric group over finite fields, and number fields in the unitary case. 
 
