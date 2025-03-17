@@ -1,0 +1,3 @@
+- construct DFT
+- construct mDFT using Peirce decomposition (central primitive orthogonal idempotents)
+- construct uDFT (multiply by conjugate transpose, factor diagonal using conj_sqrt, multiply by inverse diagonal)
