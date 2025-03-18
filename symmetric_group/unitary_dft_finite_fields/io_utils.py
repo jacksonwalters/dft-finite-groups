@@ -1,4 +1,5 @@
 import os
+from sage.matrix.constructor import Matrix
 
 def load_csv_as_matrix(filename):
     """

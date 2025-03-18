@@ -57,20 +57,23 @@ def round_complex(z, digits):
             return 0
         return z.n(digits=digits)
     
-#define the q^th power map, which is the r^th power of the Frobenius map if q=p^r
-alpha = lambda x: x**(q**2)
+#define the q^th power map for a finite field element `x` in `GF(q)`
+#note this will fix the field F, but may permute elements in an extension
+def alpha(F,x):
+    q = F.order()
+    return x**q
 
 #compute the Galois orbit of an element `x` of a finite field `GF(q)`
-def galois_orbit(alpha,x):
+def galois_orbit(alpha,F,x):
     orbit = [x]
-    while alpha(orbit[-1]) != orbit[0]:
-        orbit.append(alpha(orbit[-1]))
+    while alpha(F,orbit[-1]) != orbit[0]:
+        orbit.append(alpha(F,orbit[-1]))
     return orbit
 
 """
  - break apart the list elements of finite field elements into Galois orbit equivalence classes
 """
-def galois_orbit_equiv_classes(alpha, elements):
+def galois_orbit_equiv_classes(alpha, F, elements):
     orbits = {}
     seen = set()
     class_counter = 0
@@ -80,7 +83,7 @@ def galois_orbit_equiv_classes(alpha, elements):
             orbit = [x]
             seen.add(x)
             while True:
-                next_element = alpha(orbit[-1])
+                next_element = alpha(F,orbit[-1])
                 if next_element == orbit[0]:
                     break
                 orbit.append(next_element)
