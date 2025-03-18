@@ -45,6 +45,48 @@ def brauer_map(F, a=None, log_a=None):
 #round a complex number to a given number of digits by rounding real and imaginary parts separately
 def round_complex(z, digits):
     try:
-        return z.real_part().n(digits=digits) + z.imag_part().n(digits=digits) * 1j
+        real_part = z.real_part().n(digits=digits)
+        if real_part <= 10**(-digits):
+            real_part = 0
+        imag_part = z.imag_part().n(digits=digits)
+        if imag_part <= 10**(-digits):
+            imag_part = 0
+        return real_part + imag_part * 1j
     except AttributeError:
+        if z <= 10**(-digits):
+            return 0
         return z.n(digits=digits)
+    
+#define the q^th power map, which is the r^th power of the Frobenius map if q=p^r
+alpha = lambda x: x**(q**2)
+
+#compute the Galois orbit of an element `x` of a finite field `GF(q)`
+def galois_orbit(alpha,x):
+    orbit = [x]
+    while alpha(orbit[-1]) != orbit[0]:
+        orbit.append(alpha(orbit[-1]))
+    return orbit
+
+"""
+ - break apart the list elements of finite field elements into Galois orbit equivalence classes
+"""
+def galois_orbit_equiv_classes(alpha, elements):
+    orbits = {}
+    seen = set()
+    class_counter = 0
+    
+    for x in elements:
+        if x not in seen:
+            orbit = [x]
+            seen.add(x)
+            while True:
+                next_element = alpha(orbit[-1])
+                if next_element == orbit[0]:
+                    break
+                orbit.append(next_element)
+                seen.add(next_element)
+            
+            orbits[f'orbit_{class_counter}'] = orbit
+            class_counter += 1
+    
+    return orbits
