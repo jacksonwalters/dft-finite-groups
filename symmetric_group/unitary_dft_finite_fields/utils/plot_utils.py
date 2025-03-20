@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
 """
 plot the discrete log of a matrix valued in a finite field
 since log(0) = -infinity, we set this to -1, and color it black
@@ -60,3 +63,24 @@ def plot_arg_complex(U_complex, title):
     filename = "plots/dft_matrix/" + title.replace(" ", "_") + ".png"
     plot.save(filename, dpi=300)  # Save the plot as a PNG file with high resolution
     return plot
+
+#plot the eigenvalues over a finite field which have been complexified via the Brauer map
+def plot_complexified_eigenvalues(complexified_eigenvalues, n, q, K):
+
+    # Extract real and imaginary parts for plotting
+    real_parts = [eig.real for eig in complexified_eigenvalues]
+    imaginary_parts = [eig.imag for eig in complexified_eigenvalues]
+
+    # Plotting the eigenvalues on the complex plane
+    title = f"complexified eigenvalues of uDFT for n={n} q={q} deg={K.degree()}"
+    plt.figure(figsize=(6,6))
+    plt.scatter(real_parts, imaginary_parts, color='blue', label="Eigenvalues")
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.title(title)
+    plt.xlabel('Real Part')
+    plt.ylabel('Imaginary Part')
+    plt.grid(True)
+    plt.savefig('plots/eigenvalues/finite_fields/' + title.replace(' ','_') + '.png', dpi=300, bbox_inches="tight")
+    plt.show()
