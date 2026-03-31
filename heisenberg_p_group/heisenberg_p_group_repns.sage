@@ -81,8 +81,6 @@ def fourier_matrix():
 
     return matrix(K, rows)
 
-from sage.functions.other import sqrt
-
 def fourier_matrix_normalized():
     irreps = all_irreps()
     N = len(G)
