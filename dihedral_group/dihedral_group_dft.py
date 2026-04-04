@@ -67,10 +67,12 @@ def rho_odd(k, g, omega):
 def dft_matrix_odd(omega,unitary=False):
     assert n % 2 == 1
     dim = lambda k: 1 if k in (-1, 0) else 2
+    R.<x> = K[]
+    L.<s> = K.extension(x^2 - 2*n, x^2 - 2)  
     rows = []
     for g in G:
         if unitary:
-            row = [(sqrt(dim(k)/(2*n))*rho_odd(k, g, omega)).list() for k in range(-1,(n-1)//2 + 1)]
+            row = [(sqrt(L(dim(k)/(2*n)))*rho_odd(k, g, omega).change_ring(L)).list() for k in range(-1,(n-1)//2 + 1)]
         else:
             row = [rho_odd(k, g, omega).transpose().list() for k in range(-1,(n-1)//2 + 1)]
         rows.append(sum(row, []))
@@ -218,3 +220,36 @@ if USE_FINITE_FIELD:
 # can normalize by 1/sqrt(D) to get a unitary matrix
 if not USE_FINITE_FIELD:
     print(DFT_matrix.conjugate_transpose() * DFT_matrix)
+
+# form norm polynomial by acting on coefficients of characteristic polynomial by the Galois group
+def norm_poly(f, n):
+
+    def sigma(i):
+        phi = K.hom([z**i])
+        return f.map_coefficients(phi)
+    
+    units = [i for i in range(1, n) if gcd(i, n) == 1]  # (Z/nZ)^×
+    result = prod(sigma(i) for i in units)
+    return result.change_ring(QQ)
+
+f = DFT_matrix.charpoly(); f
+
+if not USE_FINITE_FIELD:
+    Nf = norm_poly(f, n); Nf
+
+if not USE_FINITE_FIELD:
+    Nf.is_irreducible()
+
+if not USE_FINITE_FIELD:
+    Nf.factor()
+
+if not USE_FINITE_FIELD:
+    Nf.galois_group()
+
+# n=3 galois group of norm polynomial
+if not USE_FINITE_FIELD:
+    galois_group = TransitiveGroup(12, 299)
+    print(galois_group.order())
+    print(galois_group.is_solvable())
+    print(galois_group.is_primitive())
+    print(galois_group.structure_description())
